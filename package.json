@@ -7,6 +7,9 @@
     "pnpm": "^9.9.0"
   },
   "scripts": {
+    "//": "# The preinstall script is to make sure we install the required pnpm version on the Cloudflare Worker.",
+    "preinstall": "pnpm install -g pnpm@$(grep '\"pnpm\": \"^' package.json | sed -E 's/.*\"pnpm\": \".*([0-9]\\.[0-9]\\.[0-9])\"/\\1/')",
+    "//": "#",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
