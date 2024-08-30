@@ -2,6 +2,12 @@
 import { XMLParser } from "fast-xml-parser";
 import Layout from "../layouts/Layout.astro";
 
+interface Result {
+  siteData: {
+    currentConditions: string;
+  };
+}
+
 // Doc: - https://eccc-msc.github.io/open-data/msc-data/readme_en/#weather-alerts-and-public-forecasts
 //      - https://eccc-msc.github.io/open-data/msc-data/citypage-weather/readme_citypageweather-datamart_en/
 const result = await fetch(
@@ -11,13 +17,13 @@ const result = await fetch(
   .then((xml) => {
     const parser = new XMLParser();
 
-    return parser.parse(xml) as object;
+    return parser.parse(xml) as Result;
   });
 ---
 
 <Layout title="Meteo Montreal">
   <div class="pre">
-    {JSON.stringify(result, null, 2)}
+    {JSON.stringify(result.siteData.currentConditions, null, 2)}
   </div>
 </Layout>
 
