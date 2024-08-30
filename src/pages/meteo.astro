@@ -16,13 +16,17 @@ const result = await fetch(
 ---
 
 <Layout title="Meteo Montreal">
-  <pre>
+  <div class="pre">
     {JSON.stringify(result, null, 2)}
-  </pre>
+  </div>
 </Layout>
 
 <style>
-  pre {
+  .pre {
     color: white;
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
   }
 </style>
