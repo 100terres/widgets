@@ -1,0 +1,28 @@
+---
+import { XMLParser } from "fast-xml-parser";
+import Layout from "../layouts/Layout.astro";
+
+// Doc: - https://eccc-msc.github.io/open-data/msc-data/readme_en/#weather-alerts-and-public-forecasts
+//      - https://eccc-msc.github.io/open-data/msc-data/citypage-weather/readme_citypageweather-datamart_en/
+const result = await fetch(
+  "https://dd.weather.gc.ca/citypage_weather/xml/QC/s0000635_f.xml",
+)
+  .then((payload) => payload.text())
+  .then((xml) => {
+    const parser = new XMLParser();
+
+    return parser.parse(xml) as object;
+  });
+---
+
+<Layout title="Meteo Montreal">
+  <pre>
+    {JSON.stringify(result, null, 2)}
+  </pre>
+</Layout>
+
+<style>
+  pre {
+    color: white;
+  }
+</style>
