@@ -2,9 +2,36 @@
 import { XMLParser } from "fast-xml-parser";
 import Layout from "../layouts/Layout.astro";
 
+interface Datetime {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  timeStamp: number;
+  textSummary: string;
+}
+
 interface Result {
   siteData: {
-    currentConditions: string;
+    currentConditions: {
+      station: string;
+      dateTime: [Datetime, Datetime];
+      condition: string;
+      iconCode: number;
+      temperature: number;
+      dewpoint: number;
+      humidex: number;
+      pressure: number;
+      visibility: number;
+      relativeHumidity: number;
+      wind: {
+        speed: number;
+        gust: string;
+        direction: string;
+        bearing: number;
+      };
+    };
   };
 }
 
@@ -22,17 +49,14 @@ const result = await fetch(
 ---
 
 <Layout title="Meteo Montreal">
-  <div class="pre">
-    {JSON.stringify(result.siteData.currentConditions, null, 2)}
-  </div>
+  <h1>{result.siteData.currentConditions.station}</h1>
+  <p>
+    {result.siteData.currentConditions.condition}
+  </p>
+  <p>
+    {result.siteData.currentConditions.temperature}c
+  </p>
+  <p>
+    {result.siteData.currentConditions.humidex} (humidex)
+  </p>
 </Layout>
-
-<style>
-  .pre {
-    color: white;
-    display: block;
-    font-family: monospace;
-    white-space: pre;
-    margin: 1em 0;
-  }
-</style>
