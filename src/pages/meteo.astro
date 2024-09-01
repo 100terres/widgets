@@ -48,8 +48,9 @@ const result = await fetch(
   });
 ---
 
-<Layout title="Meteo Montreal">
+<Layout title="Météo Montréal">
   <h1>{result.siteData.currentConditions.station}</h1>
+
   <p>
     {result.siteData.currentConditions.condition}
   </p>
@@ -57,6 +58,6 @@ const result = await fetch(
     {result.siteData.currentConditions.temperature}c
   </p>
   <p>
-    {result.siteData.currentConditions.humidex} (humidex)
+    {result.siteData.currentConditions.humidex || "-"} (humidex)
   </p>
 </Layout>

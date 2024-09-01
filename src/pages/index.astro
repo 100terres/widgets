@@ -3,55 +3,24 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <h1>Baseline Tools</h1>
+<Layout title="Baseline Tools">
+  <h1>Baseline Tools</h1>
 
-    <p>Simple utility applications that work on any brosers.</p>
+  <p>Utilitaires simples qui fonctionnent dans tous les navigateurs.</p>
 
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="/meteo"
-        title="Meteo - Montreal"
-        body="Prevision meteo a Montreal."
-      />
-    </ul>
-  </main>
+  <ul role="list">
+    <Card
+      href="/meteo/"
+      title="Météo Montréal"
+      body="Prévisions météo pour Montréal."
+    />
+  </ul>
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 16px;
-    width: 800px;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
-  h1 {
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  .text-gradient {
-    -webkit-text-fill-color: transparent;
-    background-position: 0%;
-  }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    padding: 0.3em 0.4em;
-  }
-  .link-card-grid {
+  ul {
+    display: block;
+    margin: 0;
     padding: 0;
   }
 </style>

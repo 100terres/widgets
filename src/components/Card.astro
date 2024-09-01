@@ -8,35 +8,22 @@ interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<li class="link-card">
+<li>
   <a href={href}>
     <h2>
       {title}
-      <span>&rarr;</span>
     </h2>
     <p>
       {body}
     </p>
   </a>
 </li>
+
 <style>
-  .link-card {
-    list-style: none;
-    padding: 1px;
-    background-color: #23262d;
-    background-image: none;
-    background-position: 100%;
-  }
-  .link-card > a {
-    width: 100%;
-    line-height: 1.4;
-    color: white;
-    background-color: #23262d;
-  }
-  h2 {
+  li {
+    display: block;
     margin: 0;
-  }
-  p {
-    margin-bottom: 0;
+    padding: 8px 16px;
+    border: 2px solid white;
   }
 </style>
