@@ -1,63 +1,84 @@
 ---
-import { XMLParser } from "fast-xml-parser";
+/* eslint-disable @typescript-eslint/no-unsafe-member-access,
+@typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-return,
+@typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any */
 import Layout from "../layouts/Layout.astro";
 
-interface Datetime {
-  year: number;
-  month: number;
-  day: number;
-  hour: number;
-  minute: number;
-  timeStamp: number;
-  textSummary: string;
-}
-
-interface Result {
-  siteData: {
-    currentConditions: {
-      station: string;
-      dateTime: [Datetime, Datetime];
-      condition: string;
-      iconCode: number;
-      temperature: number;
-      dewpoint: number;
-      humidex: number;
-      pressure: number;
-      visibility: number;
-      relativeHumidity: number;
-      wind: {
-        speed: number;
-        gust: string;
-        direction: string;
-        bearing: number;
-      };
-    };
-  };
-}
-
-// Doc: - https://eccc-msc.github.io/open-data/msc-data/readme_en/#weather-alerts-and-public-forecasts
-//      - https://eccc-msc.github.io/open-data/msc-data/citypage-weather/readme_citypageweather-datamart_en/
+// FIXME: Please add type for the result
 const result = await fetch(
-  "https://dd.weather.gc.ca/citypage_weather/xml/QC/s0000635_f.xml",
+  "https://meteo.gc.ca/api/app/v3/fr/Location/45.529,-73.562?type=city",
 )
-  .then((payload) => payload.text())
-  .then((xml) => {
-    const parser = new XMLParser();
-
-    return parser.parse(xml) as Result;
-  });
+  .then((x) => x.json())
+  .then((x) => x[0]);
 ---
 
 <Layout title="Météo Montréal">
-  <h1>{result.siteData.currentConditions.station}</h1>
+  <h1>{result.observation.observedAt}</h1>
+  <p>{result.observation.timeStampText}</p>
 
-  <p>
-    {result.siteData.currentConditions.condition}
-  </p>
-  <p>
-    {result.siteData.currentConditions.temperature}c
-  </p>
-  <p>
-    {result.siteData.currentConditions.humidex || "-"} (humidex)
-  </p>
+  <hr />
+
+  <h2>Observation</h2>
+
+  <dl>
+    <dt>Condition</dt>
+    <dd>{result.observation.condition}</dd>
+
+    <dt>Température</dt>
+    <dd>{result.observation.temperature.metric}c</dd>
+
+    <dt>Humidex</dt>
+    <dd>{result.observation.feelsLike.metric}c</dd>
+
+    <dt>Humidité</dt>
+    <dd>{result.observation.humidity}%</dd>
+
+    <dt>Vent</dt>
+    <dd>
+      {result.observation.windDirection}
+      {result.observation.windSpeed.metric} rafales {
+        result.observation.windGust.metric
+      } km/h
+    </dd>
+  </dl>
+
+  <hr />
+
+  <h2>Prévision horaire</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Date/Heure</td>
+        <td>Temp</td>
+        <td>Humidex</td>
+        <td>Condition</td>
+        <td>Éventualité de précipitation</td>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        result.hourlyFcst.hourly.map((x: any, index: number) => {
+          const addDate = index === 0 || x.time === "0h00";
+
+          return (
+            <>
+              {addDate && (
+                <tr>
+                  <td colspan="5">{x.date}</td>
+                </tr>
+              )}
+              <tr>
+                <td>{x.time}</td>
+                <td>{x.temperature.metric}c</td>
+                <td>{x.feelsLike.metric}c</td>
+                <td>{x.condition}</td>
+                <td>{x.precip}%</td>
+              </tr>
+            </>
+          );
+        })
+      }
+    </tbody>
+  </table>
 </Layout>
