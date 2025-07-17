@@ -1,6 +1,9 @@
 # build output
 dist/
 
+src/assets/tmp/
+!src/assets/tmp/.gitkeep
+
 # generated types
 .astro/
 
