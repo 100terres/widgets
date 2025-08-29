@@ -8,16 +8,19 @@
     "pnpm": "^10.15.0"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "dev": "pnpm fetch-radar-image && astro dev",
-    "start": "pnpm fetch-radar-image && astro dev",
-    "build": "astro check && pnpm fetch-radar-image && astro build",
-    "preview": "astro preview",
     "astro": "astro",
-    "fetch-radar-image": "node ./fetch-radar-image.js"
+    "build": "pnpm type-check && pnpm fetch-radar-image && astro build",
+    "dev": "pnpm generate-types && pnpm fetch-radar-image && astro dev",
+    "fetch-radar-image": "node ./fetch-radar-image.js",
+    "generate-types": "wrangler types",
+    "preinstall": "npx only-allow pnpm",
+    "preview": "astro preview",
+    "start": "pnpm generate-types && pnpm fetch-radar-image && astro dev",
+    "type-check": "pnpm generate-types && tsc && astro check"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
+    "@astrojs/cloudflare": "12.6.7",
     "astro": "5.13.5",
     "fast-xml-parser": "5.2.5",
     "lightningcss": "1.30.1",
@@ -42,6 +45,7 @@
     "stylelint-config-html": "1.1.0",
     "stylelint-config-standard": "39.0.0",
     "stylelint-no-unsupported-browser-features": "8.0.4",
-    "typescript-eslint": "8.41.0"
+    "typescript-eslint": "8.41.0",
+    "wrangler": "4.33.1"
   }
 }
