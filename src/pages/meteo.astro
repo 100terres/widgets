@@ -19,7 +19,7 @@ const result = await fetch(
   "https://meteo.gc.ca/api/app/v3/fr/Location/45.529,-73.562?type=city",
 )
   .then((x) => x.json())
-  .then((x) => x[0]);
+  .then((x: any) => x[0]);
 
 import radarLayer from "../assets/tmp/downloaded-radar.png";
 
