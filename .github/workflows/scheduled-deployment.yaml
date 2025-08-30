@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
+      - run: pnpm install
       - name: Deploy app
         uses: cloudflare/wrangler-action@v3
         with:
