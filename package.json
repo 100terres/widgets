@@ -10,6 +10,7 @@
   "scripts": {
     "astro": "astro",
     "build": "pnpm type-check && pnpm fetch-radar-image && astro build",
+    "build:only": "astro build",
     "dev": "pnpm generate-types && pnpm fetch-radar-image && astro dev",
     "fetch-radar-image": "node ./fetch-radar-image.js",
     "generate-types": "wrangler types",
@@ -20,7 +21,6 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/cloudflare": "12.6.7",
     "astro": "5.13.5",
     "fast-xml-parser": "5.2.5",
     "lightningcss": "1.30.1",
