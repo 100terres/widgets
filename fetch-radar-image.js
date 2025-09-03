@@ -7,7 +7,7 @@ function run() {
   const __dirname = path.dirname(__filename);
   const destPath = path.resolve(
     __dirname,
-    "./src/assets/tmp/downloaded-radar.png",
+    "./src/assets/generated/downloaded-radar.png",
   );
 
   fetch(

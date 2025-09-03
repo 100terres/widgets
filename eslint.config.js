@@ -6,17 +6,34 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
+  {
+    ignores: [
+      "**/.astro",
+      "**/.wrangler",
+      "**/dist",
+      "**/node_modules",
+      "worker-configuration.d.ts",
+    ],
+  },
+
+  // JavaScript
   eslint.configs.recommended,
-  ...tseslint.configs.strictTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
+
+  // TypeScript
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
   {
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.eslint.json",
+        project: "./tsconfig.json",
         tsconfigRootDir: import.meta.dirname,
       },
     },
   },
+
+  // Astro
+  eslintPluginAstro.configs["flat/recommended"],
+  eslintPluginAstro.configs["flat/jsx-a11y-strict"],
   {
     files: [
       "**/*.js",
@@ -29,7 +46,6 @@ export default tseslint.config(
     ],
     ...tseslint.configs.disableTypeChecked,
   },
-  ...eslintPluginAstro.configs.recommended,
   {
     files: [
       "**/*.astro/*.js",
@@ -39,11 +55,33 @@ export default tseslint.config(
     ],
     ...eslintPluginCompat.configs["flat/recommended"],
   },
+
+  // Prettier
+  eslintPluginPrettierRecommended,
   {
+    files: [
+      "**/*.astro/*.js",
+      "*.astro/*.js",
+      "**/*.astro/*.ts",
+      "*.astro/*.ts",
+    ],
     rules: {
-      // override/add rules settings here, such as:
-      // "astro/no-set-html-directive": "error"
+      "prettier/prettier": "off",
     },
   },
-  eslintPluginPrettierRecommended,
+
+  // Rules overrides
+  {
+    rules: {
+      "astro/jsx-a11y/no-redundant-roles": [
+        "error",
+        {
+          // We allow explicit role on ul and ol elements, because we assume that we should remove
+          // the default styles.
+          ol: ["list"],
+          ul: ["list"],
+        },
+      ],
+    },
+  },
 );

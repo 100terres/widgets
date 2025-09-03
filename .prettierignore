@@ -1,8 +1,12 @@
 # build output
 dist/
 
-# generated types
+# astro
 .astro/
+
+# cloudflare / wrangler
+.wrangler/
+worker-configuration.d.ts
 
 # dependencies
 node_modules/
