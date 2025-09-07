@@ -114,7 +114,7 @@ const showHumidex = result.hourlyFcst.hourly.some((x: any) =>
               <>
                 {addDate && (
                   <tr>
-                    <td colspan="5">{x.date}</td>
+                    <td colspan={showHumidex ? "4" : "5"}>{x.date}</td>
                   </tr>
                 )}
                 <tr>
