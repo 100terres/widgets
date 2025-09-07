@@ -82,41 +82,52 @@ const generatedAt = DateTime.now()
 
   <h2>Prévision horaire</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <td>Date/Heure</td>
-        <td>Temp</td>
-        <td>Humidex</td>
-        <td>Condition</td>
-        <td>Éventualité de précipitation</td>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        result.hourlyFcst.hourly.map((x: any, index: number) => {
-          const addDate = index === 0 || x.time === "0h00";
+  <div
+    class="table-wrapper"
+    tabindex="0"
+    role="region"
+    aria-labelledby="tableCaption_01"
+    id="tableCaption_01"
+  >
+    <table>
+      <caption>
+        Prévision horaire pour les {result.hourlyFcst.hourly.length} prochaines heures.
+      </caption>
+      <thead>
+        <tr>
+          <td>Date/Heure</td>
+          <td>Temp</td>
+          <td>Humidex</td>
+          <td>Condition</td>
+          <td>Éventualité de précipitation</td>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          result.hourlyFcst.hourly.map((x: any, index: number) => {
+            const addDate = index === 0 || x.time === "0h00";
 
-          return (
-            <>
-              {addDate && (
+            return (
+              <>
+                {addDate && (
+                  <tr>
+                    <td colspan="5">{x.date}</td>
+                  </tr>
+                )}
                 <tr>
-                  <td colspan="5">{x.date}</td>
+                  <td>{x.time}</td>
+                  <td>{x.temperature.metric}c</td>
+                  <td>{x.feelsLike.metric}c</td>
+                  <td>{x.condition}</td>
+                  <td>{x.precip}%</td>
                 </tr>
-              )}
-              <tr>
-                <td>{x.time}</td>
-                <td>{x.temperature.metric}c</td>
-                <td>{x.feelsLike.metric}c</td>
-                <td>{x.condition}</td>
-                <td>{x.precip}%</td>
-              </tr>
-            </>
-          );
-        })
-      }
-    </tbody>
-  </table>
+              </>
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
 </Layout>
 
 <style>
