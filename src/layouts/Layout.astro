@@ -153,13 +153,22 @@ const { title } = Astro.props;
     text-indent: 0;
     text-align: left;
     border-collapse: collapse;
-    border: solid 4px;
-    border-color: white;
+  }
+
+  th,
+  caption {
+    text-align: start;
+  }
+
+  thead th:not(:first-child),
+  td:not(:first-child) {
+    text-align: end;
   }
 
   th,
   td {
-    padding: 0.25rem 0.75rem;
+    vertical-align: baseline;
+    padding: 0.15rem 0.25rem;
   }
 
   tbody td[colspan],

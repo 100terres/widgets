@@ -47,10 +47,10 @@ const showHumidex = result.hourlyFcst.hourly.some((x) =>
     <dd>{result.observation.condition}</dd>
 
     <dt>Température</dt>
-    <dd>{result.observation.temperature.metric}c</dd>
+    <dd>{result.observation.temperature.metric} °C</dd>
 
     <dt>Humidex</dt>
-    <dd>{result.observation.feelsLike.metric}c</dd>
+    <dd>{result.observation.feelsLike.metric} °C</dd>
 
     <dt>Humidité</dt>
     <dd>{result.observation.humidity}%</dd>
@@ -91,19 +91,18 @@ const showHumidex = result.hourlyFcst.hourly.some((x) =>
     tabindex="0"
     role="region"
     aria-labelledby="tableCaption_01"
-    id="tableCaption_01"
   >
     <table>
-      <caption>
+      <caption id="tableCaption_01">
         Prévision horaire pour les {result.hourlyFcst.hourly.length} prochaines heures.
       </caption>
       <thead>
         <tr>
-          <td>Date/Heure</td>
-          <td>Temp</td>
+          <td>Horaire</td>
+          <td>°C</td>
           {showHumidex && <td>Humidex</td>}
           <td>Condition</td>
-          <td>Éventualité de précipitation</td>
+          <td>Prob. d'averse</td>
         </tr>
       </thead>
       <tbody>
@@ -120,8 +119,8 @@ const showHumidex = result.hourlyFcst.hourly.some((x) =>
                 )}
                 <tr>
                   <td>{x.time}</td>
-                  <td>{x.temperature.metric}c</td>
-                  {showHumidex && <td>{x.feelsLike.metric}c</td>}
+                  <td>{x.temperature.metric} °C</td>
+                  {showHumidex && <td>{x.feelsLike.metric} °C</td>}
                   <td>{x.condition}</td>
                   <td>{x.precip}%</td>
                 </tr>
