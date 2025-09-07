@@ -28,7 +28,7 @@ const generatedAt = DateTime.now()
   .setLocale("fr")
   .toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
 
-const showHumidex = result.hourlyFcst.hourly.some((x) =>
+const showHumidex = result.hourlyFcst.hourly.some((x: any) =>
   Boolean(x.feelsLike.metric),
 );
 ---
