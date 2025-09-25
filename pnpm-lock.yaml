@@ -70,17 +70,17 @@ importers:
         specifier: 0.14.1
         version: 0.14.1
       stylelint:
-        specifier: 16.23.1
-        version: 16.23.1(typescript@5.9.2)
+        specifier: 16.24.0
+        version: 16.24.0(typescript@5.9.2)
       stylelint-config-html:
         specifier: 1.1.0
-        version: 1.1.0(postcss-html@1.8.0)(stylelint@16.23.1(typescript@5.9.2))
+        version: 1.1.0(postcss-html@1.8.0)(stylelint@16.24.0(typescript@5.9.2))
       stylelint-config-standard:
         specifier: 39.0.0
-        version: 39.0.0(stylelint@16.23.1(typescript@5.9.2))
+        version: 39.0.0(stylelint@16.24.0(typescript@5.9.2))
       stylelint-no-unsupported-browser-features:
         specifier: 8.0.4
-        version: 8.0.4(stylelint@16.23.1(typescript@5.9.2))
+        version: 8.0.4(stylelint@16.24.0(typescript@5.9.2))
       typescript-eslint:
         specifier: 8.42.0
         version: 8.42.0(eslint@9.34.0)(typescript@5.9.2)
@@ -3044,8 +3044,8 @@ packages:
     peerDependencies:
       stylelint: ^16.0.2
 
-  stylelint@16.23.1:
-    resolution: {integrity: sha512-dNvDTsKV1U2YtiUDfe9d2gp902veFeo3ecCWdGlmLm2WFrAV0+L5LoOj/qHSBABQwMsZPJwfC4bf39mQm1S5zw==}
+  stylelint@16.24.0:
+    resolution: {integrity: sha512-7ksgz3zJaSbTUGr/ujMXvLVKdDhLbGl3R/3arNudH7z88+XZZGNLMTepsY28WlnvEFcuOmUe7fg40Q3lfhOfSQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -6973,27 +6973,27 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  stylelint-config-html@1.1.0(postcss-html@1.8.0)(stylelint@16.23.1(typescript@5.9.2)):
+  stylelint-config-html@1.1.0(postcss-html@1.8.0)(stylelint@16.24.0(typescript@5.9.2)):
     dependencies:
       postcss-html: 1.8.0
-      stylelint: 16.23.1(typescript@5.9.2)
+      stylelint: 16.24.0(typescript@5.9.2)
 
-  stylelint-config-recommended@17.0.0(stylelint@16.23.1(typescript@5.9.2)):
+  stylelint-config-recommended@17.0.0(stylelint@16.24.0(typescript@5.9.2)):
     dependencies:
-      stylelint: 16.23.1(typescript@5.9.2)
+      stylelint: 16.24.0(typescript@5.9.2)
 
-  stylelint-config-standard@39.0.0(stylelint@16.23.1(typescript@5.9.2)):
+  stylelint-config-standard@39.0.0(stylelint@16.24.0(typescript@5.9.2)):
     dependencies:
-      stylelint: 16.23.1(typescript@5.9.2)
-      stylelint-config-recommended: 17.0.0(stylelint@16.23.1(typescript@5.9.2))
+      stylelint: 16.24.0(typescript@5.9.2)
+      stylelint-config-recommended: 17.0.0(stylelint@16.24.0(typescript@5.9.2))
 
-  stylelint-no-unsupported-browser-features@8.0.4(stylelint@16.23.1(typescript@5.9.2)):
+  stylelint-no-unsupported-browser-features@8.0.4(stylelint@16.24.0(typescript@5.9.2)):
     dependencies:
       doiuse: 6.0.5
       postcss: 8.5.6
-      stylelint: 16.23.1(typescript@5.9.2)
+      stylelint: 16.24.0(typescript@5.9.2)
 
-  stylelint@16.23.1(typescript@5.9.2):
+  stylelint@16.24.0(typescript@5.9.2):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
