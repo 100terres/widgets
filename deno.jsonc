@@ -1,10 +1,10 @@
 {
+  "$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
   "nodeModulesDir": "auto",
   "lock": {
     "frozen": true,
   },
   "permissions": {
-    // TODO: use permission set when deno deploy start using v2.5.0
     "generate-radar-image": {
       "write": ["./src/assets/generated"],
       "net": ["geo.meteo.gc.ca:443"],
@@ -14,7 +14,7 @@
     "build": "deno task type-check && deno task fetch-radar-image && deno task build:only",
     "build:only": "astro build",
     "dev": "deno task fetch-radar-image && astro dev",
-    "fetch-radar-image": "deno run --allow-write=./src/assets/generated --allow-net=geo.meteo.gc.ca:443 ./fetch-radar-image.js",
+    "fetch-radar-image": "deno run --permission-set=generate-radar-image ./fetch-radar-image.js",
     "preview": "astro preview",
     "start": "deno task fetch-radar-image && astro dev",
     "type-check": "astro check",
