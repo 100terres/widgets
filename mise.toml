@@ -1,9 +1,2 @@
 [tools]
-node = '22.19.0'
-
-[hooks]
-postinstall = 'npm uninstall -g yarn pnpm && npm install --global corepack@latest && corepack enable && corepack install'
-
-[settings]
-# This must be enabled to make the hooks work
-experimental = true
+deno = '2.5.2'
