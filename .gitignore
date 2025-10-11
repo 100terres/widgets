@@ -1,15 +1,8 @@
-# build output
-dist/
-
-# generated assets
-src/assets/generated/
-
-# astro
+# generated
 .astro/
-
-# cloudflare / wrangler
-.wrangler/
-worker-configuration.d.ts
+.types/
+dist/
+src/assets/generated/
 
 # dependencies
 node_modules/

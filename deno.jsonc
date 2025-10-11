@@ -4,24 +4,47 @@
   "lock": {
     "frozen": true,
   },
+  "deploy": {
+    "org": "100terres",
+    "app": "widgets",
+  },
   "permissions": {
+    "create-ci-artefacts": {
+      "env": [
+        "CI",
+        "FORGEJO_SHA",
+        "FORGEJO_SERVER_URL",
+        "FORGEJO_REPOSITORY",
+        "FORGEJO_RUN_NUMBER",
+      ],
+      "write": [".ci-artefacts"],
+    },
     "generate-radar-image": {
       "write": ["./src/assets/generated"],
       "net": ["geo.meteo.gc.ca:443"],
     },
+    "print-ci-artefacts": {
+      "read": [".ci-artefacts"],
+    },
   },
   "tasks": {
     "build": "deno task type-check && deno task fetch-radar-image && deno task build:only",
+    "build:ci": "deno task print-ci-artefacts && deno task build",
     "build:only": "astro build",
+    "create-ci-artefacts": "deno run --permission-set=create-ci-artefacts ./tasks/create-ci-artefacts.ts",
     "dev": "deno task fetch-radar-image && astro dev",
     "fetch-radar-image": "deno run --permission-set=generate-radar-image ./fetch-radar-image.js",
     "preview": "astro preview",
+    "print-ci-artefacts": "deno run --permission-set=print-ci-artefacts ./tasks/print-ci-artefacts.ts",
+    "setup": "deno install && mkdir -p .types && deno types > .types/lib.deno.d.ts && astro sync",
     "start": "deno task fetch-radar-image && astro dev",
     "type-check": "astro check",
   },
   "imports": {
     "@astrojs/check": "npm:@astrojs/check@0.9.4",
     "@eslint/js": "npm:@eslint/js@9.34.0",
+    "@jsr/std__dotenv": "npm:@jsr/std__dotenv@0.225.5",
+    "@jsr/std__path": "npm:@jsr/std__path@1.1.2",
     "@types/luxon": "npm:@types/luxon@3.7.1",
     "@types/node": "npm:@types/node@22.18.0",
     "@typescript-eslint/parser": "npm:@typescript-eslint/parser@8.42.0",

@@ -10,6 +10,7 @@ export default defineConfig(
   {
     ignores: [
       "**/.astro",
+      "**/.types",
       "**/.wrangler",
       "**/dist",
       "**/node_modules",
