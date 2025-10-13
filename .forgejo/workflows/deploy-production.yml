@@ -3,7 +3,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "5/30 * * * *"
+    - cron: "5 * * * *"
 
 jobs:
   deploy-production:
