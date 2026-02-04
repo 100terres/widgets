@@ -9,7 +9,7 @@ jobs:
   deploy-production:
     name: Deploy Production
     runs-on: docker
-    timeout-minutes: 3.5
+    timeout-minutes: 3
     steps:
       - name: Checkout Repository
         timeout-minutes: 0.25
