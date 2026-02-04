@@ -29,8 +29,6 @@ jobs:
         timeout-minutes: 0.25
         run: |
           deno deploy \
-            --org=100terres \
-            --app=widgets \
             --token=${{ secrets.DENO_DEPLOY_PERSONAL_ACCESS_TOKEN }} \
             --prod \
             --no-wait
