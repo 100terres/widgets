@@ -1,2 +1,8 @@
+min_version = '2026.2.0'
+
+[settings]
+experimental = true
+lockfile = true
+
 [tools]
 deno = '2.5.4'

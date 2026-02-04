@@ -1,0 +1,8 @@
+[[tools.deno]]
+version = "2.5.4"
+backend = "core:deno"
+"platforms.linux-arm64" = { checksum = "sha256:32a9f397221efd12e9c07534ecbf22af17d610294b9636d4151793d6b7412b29", url = "https://dl.deno.land/release/v2.5.4/deno-aarch64-unknown-linux-gnu.zip"}
+"platforms.linux-x64" = { checksum = "sha256:8a04bb02a1dcd56ed060e55281df4b306ca4553a0d02b53b666063f465f2193a", url = "https://dl.deno.land/release/v2.5.4/deno-x86_64-unknown-linux-gnu.zip"}
+"platforms.macos-arm64" = { checksum = "sha256:ff301a55e9f51306c02eb6da76ceba6ac98109fd11dbd7a1f5b71f5794ad725c", url = "https://dl.deno.land/release/v2.5.4/deno-aarch64-apple-darwin.zip"}
+"platforms.macos-x64" = { checksum = "sha256:bda20c2edb39d614830b9dc4a7dcbfaa0043ae5c246bae2f90b82e943a735e66", url = "https://dl.deno.land/release/v2.5.4/deno-x86_64-apple-darwin.zip"}
+"platforms.windows-x64" = { checksum = "sha256:Algorithm", url = "https://dl.deno.land/release/v2.5.4/deno-x86_64-pc-windows-msvc.zip"}
