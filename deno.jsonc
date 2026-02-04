@@ -41,6 +41,7 @@
     "print-ci-artefacts": "deno run --permission-set=print-ci-artefacts ./tasks/print-ci-artefacts.ts",
     "setup": "deno install && mkdir -p .types && deno types > .types/lib.deno.d.ts && astro sync",
     "start": "deno task fetch-radar-image && astro dev",
+    "stylelint": "stylelint \"./src/**/*.{css,astro}\"",
     "type-check": "astro check"
   },
   "imports": {
@@ -65,9 +66,9 @@
     "prettier": "npm:prettier@3.8.1",
     "prettier-plugin-astro": "npm:prettier-plugin-astro@0.14.1",
     "sharp": "npm:sharp@0.34.5",
-    "stylelint": "npm:stylelint@16.23.1",
+    "stylelint": "npm:stylelint@17.1.0",
     "stylelint-config-html": "npm:stylelint-config-html@1.1.0",
-    "stylelint-config-standard": "npm:stylelint-config-standard@39.0.0",
+    "stylelint-config-standard": "npm:stylelint-config-standard@40.0.0",
     "stylelint-no-unsupported-browser-features": "npm:stylelint-no-unsupported-browser-features@8.0.5",
     "typescript": "npm:typescript@5.9.3",
     "typescript-eslint": "npm:typescript-eslint@8.54.0"
