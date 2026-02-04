@@ -28,7 +28,7 @@ const generatedAt = DateTime.now()
   .setLocale("fr")
   .toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
 
-const showHumidex = result.hourlyFcst.hourly.some((x: any) =>
+const showFeelsLike = result.hourlyFcst.hourly.some((x: any) =>
   Boolean(x.feelsLike.metric),
 );
 ---
@@ -100,7 +100,7 @@ const showHumidex = result.hourlyFcst.hourly.some((x: any) =>
         <tr>
           <td>Horaire</td>
           <td>°C</td>
-          {showHumidex && <td>Humidex</td>}
+          {showFeelsLike && <td>Ressenti</td>}
           <td>Condition</td>
           <td>Prob. d'averse</td>
         </tr>
@@ -114,13 +114,13 @@ const showHumidex = result.hourlyFcst.hourly.some((x: any) =>
               <>
                 {addDate && (
                   <tr>
-                    <td colspan={showHumidex ? "4" : "5"}>{x.date}</td>
+                    <td colspan={showFeelsLike ? "5" : "4"}>{x.date}</td>
                   </tr>
                 )}
                 <tr>
                   <td>{x.time}</td>
                   <td>{x.temperature.metric} °C</td>
-                  {showHumidex && <td>{x.feelsLike.metric} °C</td>}
+                  {showFeelsLike && <td>{x.feelsLike.metric} °C</td>}
                   <td>{x.condition}</td>
                   <td>{x.precip}%</td>
                 </tr>
