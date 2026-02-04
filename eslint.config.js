@@ -17,10 +17,8 @@ export default defineConfig(
       "worker-configuration.d.ts",
     ],
   },
-
   // JavaScript
   eslint.configs.recommended,
-
   // TypeScript
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
@@ -32,7 +30,6 @@ export default defineConfig(
       },
     },
   },
-
   // Astro
   eslintPluginAstro.configs["flat/recommended"],
   eslintPluginAstro.configs["flat/jsx-a11y-strict"],
@@ -57,7 +54,6 @@ export default defineConfig(
     ],
     ...eslintPluginCompat.configs["flat/recommended"],
   },
-
   // Prettier
   eslintPluginPrettierRecommended,
   {
@@ -71,7 +67,6 @@ export default defineConfig(
       "prettier/prettier": "off",
     },
   },
-
   // Rules overrides
   {
     rules: {

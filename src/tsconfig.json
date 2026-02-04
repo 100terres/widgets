@@ -2,6 +2,6 @@
   "extends": "../tsconfig.base.json",
   "include": ["../.astro/types.d.ts", "**/*"],
   "compilerOptions": {
-    "jsx": "preserve",
+    "jsx": "preserve"
   }
 }

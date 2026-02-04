@@ -2,14 +2,14 @@
   "$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
   "nodeModulesDir": "auto",
   "lock": {
-    "frozen": true,
+    "frozen": true
   },
   "minimumDependencyAge": {
-    "age": "P3D",
+    "age": "P3D"
   },
   "deploy": {
     "org": "100terres",
-    "app": "widgets",
+    "app": "widgets"
   },
   "permissions": {
     "create-ci-artefacts": {
@@ -18,17 +18,17 @@
         "FORGEJO_SHA",
         "FORGEJO_SERVER_URL",
         "FORGEJO_REPOSITORY",
-        "FORGEJO_RUN_NUMBER",
+        "FORGEJO_RUN_NUMBER"
       ],
-      "write": [".ci-artefacts"],
+      "write": [".ci-artefacts"]
     },
     "generate-radar-image": {
       "write": ["./src/assets/generated"],
-      "net": ["geo.meteo.gc.ca:443"],
+      "net": ["geo.meteo.gc.ca:443"]
     },
     "print-ci-artefacts": {
-      "read": [".ci-artefacts"],
-    },
+      "read": [".ci-artefacts"]
+    }
   },
   "tasks": {
     "build": "deno task type-check && deno task fetch-radar-image && deno task build:only",
@@ -41,7 +41,7 @@
     "print-ci-artefacts": "deno run --permission-set=print-ci-artefacts ./tasks/print-ci-artefacts.ts",
     "setup": "deno install && mkdir -p .types && deno types > .types/lib.deno.d.ts && astro sync",
     "start": "deno task fetch-radar-image && astro dev",
-    "type-check": "astro check",
+    "type-check": "astro check"
   },
   "imports": {
     "@astrojs/check": "npm:@astrojs/check@0.9.6",
@@ -70,6 +70,6 @@
     "stylelint-config-standard": "npm:stylelint-config-standard@39.0.0",
     "stylelint-no-unsupported-browser-features": "npm:stylelint-no-unsupported-browser-features@8.0.5",
     "typescript": "npm:typescript@5.9.3",
-    "typescript-eslint": "npm:typescript-eslint@8.54.0",
-  },
+    "typescript-eslint": "npm:typescript-eslint@8.54.0"
+  }
 }
