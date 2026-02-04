@@ -26,5 +26,11 @@ jobs:
         timeout-minutes: 0.25
         run: deno task create-ci-artefacts
       - name: Deploy Production
-        timeout-minutes: 1.25
-        run: deno deploy --token=${{ secrets.DENO_DEPLOY_PERSONAL_ACCESS_TOKEN }} --prod
+        timeout-minutes: 0.25
+        run: |
+          deno deploy \
+            --org=100terres \
+            --app=widgets \
+            --token=${{ secrets.DENO_DEPLOY_PERSONAL_ACCESS_TOKEN }} \
+            --prod \
+            --no-wait
