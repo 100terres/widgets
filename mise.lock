@@ -1,8 +1,8 @@
 [[tools.deno]]
-version = "2.6.8"
+version = "2.6.9"
 backend = "core:deno"
-"platforms.linux-arm64" = { checksum = "sha256:09a0a800be639986515540ddae2f2752625ed412f63d36c7152c2a72ee78c2d7", url = "https://dl.deno.land/release/v2.6.8/deno-aarch64-unknown-linux-gnu.zip"}
-"platforms.linux-x64" = { checksum = "sha256:e24aa1134b220d7185fa78136886b9a2d4014f0fa16ac6bec08b0f8f623344a1", url = "https://dl.deno.land/release/v2.6.8/deno-x86_64-unknown-linux-gnu.zip"}
-"platforms.macos-arm64" = { checksum = "sha256:9dee1808ebd2c9b95710e2ffd80c756f29df0364b5d6a53df017521cc2383783", url = "https://dl.deno.land/release/v2.6.8/deno-aarch64-apple-darwin.zip"}
-"platforms.macos-x64" = { checksum = "sha256:03a0dccb3fb3d8659cc737e7cc1bbe579d919752725ed2be8c145f75b473add8", url = "https://dl.deno.land/release/v2.6.8/deno-x86_64-apple-darwin.zip"}
-"platforms.windows-x64" = { checksum = "sha256:Algorithm", url = "https://dl.deno.land/release/v2.6.8/deno-x86_64-pc-windows-msvc.zip"}
+"platforms.linux-arm64" = { checksum = "sha256:d1cd2f5f08abdc22156b67fc1cd9e8dcd2e8e3ab5caffe1da603992c8b1b5d67", url = "https://dl.deno.land/release/v2.6.9/deno-aarch64-unknown-linux-gnu.zip"}
+"platforms.linux-x64" = { checksum = "sha256:8a677a4b0cea1a25aaecfc70d6c6a288f9ad69af0a92e9e9d513cabaaf3c688f", url = "https://dl.deno.land/release/v2.6.9/deno-x86_64-unknown-linux-gnu.zip"}
+"platforms.macos-arm64" = { checksum = "sha256:81f8da15540aa7cdcb1e37c13ee15e919b2aa26b65157c2aa69fed7c037dbfa5", url = "https://dl.deno.land/release/v2.6.9/deno-aarch64-apple-darwin.zip"}
+"platforms.macos-x64" = { checksum = "sha256:ce1961bde80352d43d1967b5f5b92eb7be66afa7e942700e66b6d7474485a69a", url = "https://dl.deno.land/release/v2.6.9/deno-x86_64-apple-darwin.zip"}
+"platforms.windows-x64" = { checksum = "sha256:Algorithm", url = "https://dl.deno.land/release/v2.6.9/deno-x86_64-pc-windows-msvc.zip"}

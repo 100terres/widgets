@@ -5,4 +5,4 @@ experimental = true
 lockfile = true
 
 [tools]
-deno = '2.6.8'
+deno = '2.6.9'

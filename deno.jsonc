@@ -4,9 +4,12 @@
   "lock": {
     "frozen": true
   },
-  "minimumDependencyAge": {
-    "age": "P3D"
-  },
+  // FIXME: @deno/deploy is broken, there's a fix on the way
+  //        ref: https://github.com/denoland/deno/issues/32135
+  //
+  // "minimumDependencyAge": {
+  //   "age": "P3D",
+  // },
   "deploy": {
     "org": "100terres",
     "app": "widgets"
