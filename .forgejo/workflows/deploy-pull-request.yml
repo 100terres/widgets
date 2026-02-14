@@ -6,7 +6,7 @@ jobs:
   deploy-pull-request:
     name: Deploy Pull Request
     runs-on: docker
-    timeout-minutes: 3
+    timeout-minutes: 5
     steps:
       - name: Checkout Repository
         timeout-minutes: 0.25
@@ -17,7 +17,7 @@ jobs:
         with:
           version: 2026.2.0
       - name: Project Setup
-        timeout-minutes: 2
+        timeout-minutes: 4
         run: deno task setup
       - name: Create CI Artefacts
         timeout-minutes: 0.25
