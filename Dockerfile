@@ -23,6 +23,6 @@ RUN deno task build
 
 FROM ghcr.io/static-web-server/static-web-server:2
 
-COPY --from=builder /app/dist /var/public
+COPY --from=builder /app/dist /public
 
 EXPOSE 80
