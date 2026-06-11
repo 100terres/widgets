@@ -16,7 +16,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN mise trust && mise instal
+RUN mise trust && mise install
 RUN deno task setup
 RUN deno task build
 
