@@ -21,9 +21,9 @@ RUN mise trust && mise install
 RUN deno task setup
 RUN deno task build
 
-FROM ghcr.io/static-web-server/static-web-server:2
+FROM ghcr.io/static-web-server/static-web-server:2-alpine
 
-COPY --from=builder /app/dist /public
 RUN apk add --no-cache curl
+COPY --from=builder /app/dist /public
 
 EXPOSE 80
