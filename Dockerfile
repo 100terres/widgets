@@ -27,6 +27,6 @@ USER root
 RUN apk add --no-cache curl
 
 USER $SERVER_USER_NAME:$SERVER_GROUP_NAME
-COPY --from=builder /app/dist /public
+COPY --from=builder /app/dist /var/public
 
 EXPOSE 80
