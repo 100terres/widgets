@@ -23,7 +23,10 @@ RUN deno task build
 
 FROM ghcr.io/static-web-server/static-web-server:2-alpine
 
+USER root
 RUN apk add --no-cache curl
+
+USER $SERVER_USER_NAME:$SERVER_GROUP_NAME
 COPY --from=builder /app/dist /public
 
 EXPOSE 80
