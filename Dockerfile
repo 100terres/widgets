@@ -24,5 +24,6 @@ RUN deno task build
 FROM ghcr.io/static-web-server/static-web-server:2
 
 COPY --from=builder /app/dist /public
+RUN apk add --no-cache curl
 
 EXPOSE 80
