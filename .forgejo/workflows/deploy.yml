@@ -16,5 +16,5 @@ jobs:
           curl -X POST "${{ secrets.DEPLOY_WEBHOOK_URL }}" \
             -H "X-Dagu-Signature: sha256=$SIGNATURE" \
             -H "Content-Type: application/json" \
-            --user ${{ secrets.DEPLOY_WEBHOOK_USER_PASSWORD }}
+            --user ${{ secrets.DEPLOY_WEBHOOK_USER_PASSWORD }} \
             -d '{"dagRunId":"widgets"}'
