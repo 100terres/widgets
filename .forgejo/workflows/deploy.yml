@@ -14,7 +14,7 @@ jobs:
           BODY='{}'
           SIGNATURE=$(printf '%s' "$BODY" | openssl dgst -sha256 -hmac "${{ secrets.DEPLOY_WEBHOOK_HMAC_SECRET }}" -hex | sed 's/^.* //')
           echo ::add-mask::$SIGNATURE
-          curl"${{ secrets.DEPLOY_WEBHOOK_URL }}" \
+          curl "${{ secrets.DEPLOY_WEBHOOK_URL }}" \
             --fail-with-body \
             --user ${{ secrets.DEPLOY_WEBHOOK_USER_PASSWORD }} \
             -H "Content-Type: application/json" \
