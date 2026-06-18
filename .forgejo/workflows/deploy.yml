@@ -7,7 +7,7 @@ jobs:
   deploy-production:
     name: Deploy Production
     runs-on: docker
-    timeout-minutes: 0.5
+    timeout-minutes: 0.25
     steps:
       - name: Deploy Production
         run: |
